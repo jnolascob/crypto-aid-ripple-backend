@@ -1,6 +1,6 @@
-## Proposal
-Diagram
-https://excalidraw.com/
+## Architecture diagram
+![Architecture diagram](https://user-images.githubusercontent.com/3833940/227734329-33e02b5f-ea16-47a8-855f-53a59fec6007.png)
+
 
 Figma
 https://www.figma.com/file/6h2F7ujEXHUxQbmhuGExMM/CryptoFundMe?node-id=13-2334&t=bM1FMjiRaJk4id1B-0
