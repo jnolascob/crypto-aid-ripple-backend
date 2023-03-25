@@ -1,8 +1,20 @@
 ## Architecture diagram
+
+### Stack tech:
+- Frontend: VueJS
+- Backend: NodeJS
+- Main backend library: xrp.js
+- Main wallet: Xumm
+- Blockchain network: XRP
+- SQL Database: MySQL
+
 ![Architecture diagram](https://user-images.githubusercontent.com/3833940/227734329-33e02b5f-ea16-47a8-855f-53a59fec6007.png)
 
 ## Business logic
 ![business logic](https://user-images.githubusercontent.com/3833940/227734705-d4713b12-a6cd-4fe9-8e5c-387aee0f296a.png)
+
+## Uses case
+![logic](https://user-images.githubusercontent.com/3833940/227734857-0656d204-2927-4987-a896-d977d5936c48.png)
 
 Figma
 https://www.figma.com/file/6h2F7ujEXHUxQbmhuGExMM/CryptoFundMe?node-id=13-2334&t=bM1FMjiRaJk4id1B-0
@@ -12,20 +24,13 @@ https://testnet.xrpl.org/transactions/ECFC14C34908BA14783F1F4B3334CD3AC16446A16E
 
 URL = http://ripple-dev.coini.tech
 
-## Bolierplate para API en NodeJS usando Express
-
-Este repositorio tiene como finalidad brindar al desarrollador una estructura base ya configurada para que pueda abordar un nuevo proyecto y evitar los primeros pasos de la creación de un proyecto que tienden a ser repetitivos.
-
-### Estructura del proyecto
+### Project structure
 
 ```
 project
 │   README.md
 │   .editorconfig
-│   .env.development
-│   .env.production
-│   .env.staging
-│   .env.test
+│   .env
 │   .eslintrc
 │   .gitignore
 │   .package.json
@@ -55,19 +60,7 @@ project
 │   │   │
 ```
 
-Esta estructura cuenta con diferentes carpetas, cada carpeta tiene una función en específica.
-
-- **Project:** Esta es la carpeta raíz, la cual contiene todo el proyecto. En su primer nivel esta todas las configuraciones básicas para escribir código.
-- **Src:** Es la carpeta de recursos del proyecto, esta carpeta contiene todo lo que es código que usara el proyecto.
-- **Config:** En esta carpeta se guarda todas las configuraciones que hay en el proyecto, tanto como para el proyecto mismo, como para las librerías de terceros.
-- **Controllers:** En esta carpeta se guarda los archivos que realizan la lógica del API que se usaran en los diferentes endpoints.
-- **Models:** En caso de usar un ORM y necesites modelar tu base de datos, se usara esta carpeta para guardar todos los modelos.
-- **Routes:** Aquí se guardaran todas las rutas que se generan a través de la librería Express.
-- **templates:** En el caso de que se necesite algún template en código HTML o otro, este seria el lugar donde deba ir.
-- **Test:** Aquí irán todas las pruebas que se creen para las diferentes URIs del API.
-- **Utils:** Aquí se guardan las funciones propias que serán de ayuda para resolver los problemas propuestos, o para simplificar el uso de métodos de terceros.
-
-### Instalación y configuración básica
+### Quick start and setup
 
 Para usar este repositorio se debe seguir los siguientes pasos:
 
