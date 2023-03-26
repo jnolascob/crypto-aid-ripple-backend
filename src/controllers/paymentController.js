@@ -15,8 +15,9 @@ let txid = '';
  * @returns result
  */
 async function payment(req, res) {
+  const { db } = req.app;
   try {
-    const { amount } = req.body;
+    const { amount, projectId } = req.body;
     const convertedAmount = (amount * 1000000).toString();
     const request = {
       TransactionType: 'Payment',
@@ -30,18 +31,22 @@ async function payment(req, res) {
         },
       ],
     };
-    const payload = await Sdk.payload.createAndSubscribe(request, (event) => {
+    const payload = await Sdk.payload.createAndSubscribe(request, async (event) => {
       console.log('New payload event:', event.data);
 
       if (event.data.signed === true) {
-        console.log('Woohoo! The sign request was signed :)');
+        console.log('Woohoo! The payment was success :)');
+        const { progress_amount: progressAmount } = await
+        db.select('progress_amount').from('project').where('id', projectId).first();
+        const newAmount = progressAmount + amount;
+        await db('project').update({ progress_amount: newAmount }).where('id', projectId);
         completed = true;
         txid = event.data.txid;
         return event.data;
       }
 
       if (event.data.signed === false) {
-        console.log('The sign request was rejected :(');
+        console.log('The sign payment was rejected :(');
         completed = false;
         return false;
       }
